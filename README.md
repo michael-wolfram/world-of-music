@@ -46,7 +46,7 @@ To run the PHPUnit tests of this project, run following commands on your console
 
 ```bash
 $ cd path/to/project
-$ php vendor/bin/phpunit --dump-xdebug-filter build/xdebug-filter.php tests/
+$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/
 ```
 
 <br>
