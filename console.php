@@ -17,7 +17,7 @@ try {
 // configure record filters and add them to record filter chain
 $recordFilters = [
   new \App\Record\Filter\ReleaseDateBeforeFilter(\DateTime::createFromFormat('d.m.Y', '01.01.2001')),
-  new \App\Record\Filter\TrackCountGreaterThanFilter(10),
+  new \App\Record\Filter\TrackCountGreaterThanFilter(10)
 ];
 $recordFilterChain = new \App\Record\Filter\Chain\RecordFilterChain();
 foreach($recordFilters as $recordFilter) {
