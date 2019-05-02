@@ -43,19 +43,19 @@ class XmlDocumentParserTest extends TestCase {
 
   public function testThrowExceptionOnInvalidFilepath() : void {
     $this->expectException(XmlDocumentParserException::class);
-    $this->expectExceptionMessage(XmlDocumentParserException::INVALID_FILEPATH);
+    $this->expectExceptionMessage(sprintf(XmlDocumentParserException::INVALID_FILEPATH, $this->_virtualFileSystem->url().'/input/not-existing.file'));
     $this->_xmlDocumentParser->getRecordCollectionByInputSchemeAndXmlDocumentFilepath($this->_mockupInputScheme, $this->_virtualFileSystem->url().'/input/not-existing.file');
   }
 
   public function testThrowExceptionOnEmptyFile() : void {
     $this->expectException(XmlDocumentParserException::class);
-    $this->expectExceptionMessage(XmlDocumentParserException::EMPTY_FILE);
+    $this->expectExceptionMessage(sprintf(XmlDocumentParserException::EMPTY_FILE, $this->_virtualFileSystem->url().'/input/empty.file'));
     $this->_xmlDocumentParser->getRecordCollectionByInputSchemeAndXmlDocumentFilepath($this->_mockupInputScheme, $this->_virtualFileSystem->url().'/input/empty.file');
   }
 
   public function testThrowExceptionOnInvalidFileContent() : void {
     $this->expectException(XmlDocumentParserException::class);
-    $this->expectExceptionMessage(XmlDocumentParserException::NOT_AN_XML_FILE);
+    $this->expectExceptionMessage(sprintf(XmlDocumentParserException::NOT_AN_XML_FILE, $this->_virtualFileSystem->url().'/input/invalid.file'));
     $this->_xmlDocumentParser->getRecordCollectionByInputSchemeAndXmlDocumentFilepath($this->_mockupInputScheme, $this->_virtualFileSystem->url().'/input/invalid.file');
   }
 
